@@ -1,13 +1,39 @@
 # OpenKind model registry
 
-This static catalog describes curated OpenKind model profiles. The first profile is the pinned Qwen3.5-4B state-first integration target. It is Rust-loadable but has no task-quality or release-promotion claim.
+This public repository distributes curated profiles for the OpenKind decision
+engine. The private OpenKind application repository owns the catalog metadata,
+compiled-in loaders, CLI, and daemon. Its `registry/v1` is mirrored here so
+`openkind catalog` and `openkind pull` can use anonymous raw HTTPS requests.
 
-The registry contains the small OpenKind profile bundle and the exported tokenizer required by its loader. It does not rehost the Qwen checkpoint shards. Clients download those shards from `Qwen/Qwen3.5-4B-Base` at commit `1001bb4d826a52d1f399e183466143f4da7b741b` and verify size and SHA-256. Qwen model licensing is reproduced in `LICENSE-QWEN`; see `assets/qwen35-state-first/a047d6802c3f06f085b8/bundle/SOURCE.md` for profile provenance.
+| Here | OpenKind application repository | Model authors |
+|---|---|---|
+| Public `registry/v1` mirror, small profile bundle, exported tokenizer | Metadata source, loader code, `scripts/sync-model-registry.py` | Checkpoint weights |
 
-`registry/v1/catalog.json` is the entry point. Each named manifest pins its artifacts to immutable source commits.
+The first entry is the pinned Qwen3.5-4B state-first integration target. Its
+`rust-loadable` status does not claim task quality or release approval.
+Checkpoint shards remain at `Qwen/Qwen3.5-4B-Base`, pinned to commit
+`1001bb4d826a52d1f399e183466143f4da7b741b`; clients verify their size and
+SHA-256. The Qwen license is in [`LICENSE-QWEN`](LICENSE-QWEN). The
+[bundle source note](assets/qwen35-state-first/a047d6802c3f06f085b8/bundle/SOURCE.md)
+records profile provenance.
 
-The metadata source is OpenKind's `registry/v1`. The private OpenKind repository
-has `scripts/sync-model-registry.py` to copy metadata here and compare this
-checkout with the public HTTPS files. Add new profile assets in an immutable
-commit before publishing a manifest that names them. Keep older asset commits
-reachable for installations pinned to them.
+## Publishing a catalog change
+
+Commit new profile assets here first. Keep their commit reachable, then pin
+that commit and each artifact digest in OpenKind's manifest. Update OpenKind's
+catalog manifest digest and pass its local loader and parity checks. From the
+OpenKind checkout, run:
+
+```bash
+python3 scripts/sync-model-registry.py --write
+# Review, commit, and push registry/v1 in this repository.
+python3 scripts/sync-model-registry.py --remote
+```
+
+The script is in OpenKind, not this repository. `--write` copies only catalog
+and manifest files; it does not copy assets, commit, or push. `--remote` checks
+the public catalog, manifests, and pinned profile assets after the push. Both
+commands leave checkpoint shards with their authors. There is no automatic
+cross-repository push. The script defaults to a checkout at
+`~/Documents/GitHub/openkind-model-registry`; pass `--mirror PATH` if this
+checkout is elsewhere.
