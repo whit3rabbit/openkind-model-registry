@@ -35,7 +35,7 @@
       }
     },
     {
-      "path": "assets/kev-0.6b/39d88c11faeb4ac165fa/head.safetensors",
+      "path": "adapter/head.safetensors",
       "size": 2099504,
       "sha256": "006201e630a8cdef3386e803e38d6374786c557cf7b5d8637a4774b52f075202",
       "source": {

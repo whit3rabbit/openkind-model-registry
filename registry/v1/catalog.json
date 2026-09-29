@@ -53,7 +53,7 @@
       "description": "Pinned DistilBERT MNLI zero-shot entailment decision encoder (Apache-2.0); prototype readout, research status",
       "support_status": "rust-loadable",
       "manifest_path": "manifests/encoder-nli-1041a4c362338a61b820.json",
-      "manifest_sha256": "d38042a9f577987a97d48e504ad578d661daf445de84b06966e676c46d19d105"
+      "manifest_sha256": "cea2699177102a1ccc0cd77faaa7904f5dcb027fa253d5191d5eb6b31dc198c4"
     },
     {
       "name": "encoder-instruct-label:9fd68313a5606eca42f2",
@@ -98,7 +98,7 @@
       "description": "Pinned kev-0.6b LoRA decision decoder with pointer head over Qwen3-0.6B-Base (Apache-2.0); prototype readout, research status",
       "support_status": "rust-loadable",
       "manifest_path": "manifests/kev-39d88c11faeb4ac165fa.json",
-      "manifest_sha256": "9d5f8637741d3f42e2b74d34a5420f7fa1b4081faaa2e22e7a3e131eb098683b"
+      "manifest_sha256": "ed4b3e6f491e4ae37d9a2ce599454bce5a5dc0574baed9b7f1d4bd70fb883e9a"
     },
     {
       "name": "decoder-logit-qwen35:415bcf4a064e6dadcf85",
@@ -116,7 +116,7 @@
       "description": "Pinned in-house Winnow script-aware router over Qwen2.5-0.5B-Instruct (Apache-2.0 base); prototype router, research status",
       "support_status": "rust-loadable",
       "manifest_path": "manifests/winnow-4dff8c5b03cfbf680db6.json",
-      "manifest_sha256": "ebd75da83482a0e15c4e6885ed17a483ee9dbe4bd8e8bd931df2ede413a30618"
+      "manifest_sha256": "11c1fc6425f889ef797270b5b1c8c7146f61af9aeacc85793ad6071e08a8ffa3"
     }
   ]
 }

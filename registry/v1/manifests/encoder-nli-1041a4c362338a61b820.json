@@ -26,7 +26,7 @@
     {
       "path": "checkpoint/vocab.txt",
       "size": 231508,
-      "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a",
+      "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
       "source": {
         "kind": "huggingface",
         "repository": "typeform/distilbert-base-uncased-mnli",

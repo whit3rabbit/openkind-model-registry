@@ -35,7 +35,7 @@
       }
     },
     {
-      "path": "assets/winnow/4dff8c5b03cfbf680db6/adapters.safetensors",
+      "path": "adapter.safetensors",
       "size": 5877295,
       "sha256": "f4dbf4dae0974b0afae79ceb73487d24a994520fd53365fcb20a28e157b49d83",
       "source": {
