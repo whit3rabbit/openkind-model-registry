@@ -12,6 +12,7 @@
     },
     {
       "name": "laya-english:c8ea29bf1e33a343c4b7",
+      "aliases": ["laya:en"],
       "profile_id": "c8ea29bf1e33a343c4b7",
       "loader_id": "laya-english",
       "description": "Pinned laya English decision encoder (ModernBERT-large, Apache-2.0); reference-parity readout, research status",
@@ -21,6 +22,7 @@
     },
     {
       "name": "laya-multilingual:f4064eb56fb7f7d325e1",
+      "aliases": ["laya:multilingual"],
       "profile_id": "f4064eb56fb7f7d325e1",
       "loader_id": "laya-multilingual",
       "description": "Pinned laya multilingual decision encoder (mmBERT-base, Apache-2.0; encoder derives from jhu-clsp/mmBERT-base, MIT); reference-parity readout, research status",
@@ -30,6 +32,7 @@
     },
     {
       "name": "laya-typed-decisions:9d28cfa9567902801ed1",
+      "aliases": ["laya:typed-decisions"],
       "profile_id": "9d28cfa9567902801ed1",
       "loader_id": "laya-typed-decisions",
       "description": "Pinned laya typed-decisions encoder (fine-tuned ModernBERT-large, Apache-2.0); reference-parity readout, research status",
@@ -102,6 +105,7 @@
     },
     {
       "name": "decoder-logit-qwen35:415bcf4a064e6dadcf85",
+      "aliases": ["jevk5:4b"],
       "profile_id": "415bcf4a064e6dadcf85",
       "loader_id": "decoder-logit-qwen35",
       "description": "Pinned JevK5 merged Qwen3.5-4B letter-logit decision decoder (Apache-2.0); prototype readout, research status",
