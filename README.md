@@ -17,6 +17,23 @@ SHA-256. The Qwen license is in [`LICENSE-QWEN`](LICENSE-QWEN). The
 [bundle source note](assets/qwen35-state-first/a047d6802c3f06f085b8/bundle/SOURCE.md)
 records profile provenance.
 
+## Jeeves native MLX profile
+
+`jeeves:15fb3b95801f2f039636` pins the 4-bit
+[cowWhySo/jeeves-mlx export](https://huggingface.co/cowWhySo/jeeves-mlx/tree/6f4220a267a94c5279b3fcbc5499de734b9a55b0).
+Its approximately 5.07 GB of artifacts stay on Hugging Face. The manifest
+includes the FP32 pointer head, tokenizer, configuration, and license files.
+
+Serving requires an OpenKind build containing the Jeeves loader, with
+`--features mlx` on macOS arm64. The profile scores an empty reasoning chain
+and returns typed Noul, Choice, and Score answers. It is a Rust-loadable
+prototype; task quality and release promotion remain separate gates.
+
+```bash
+openkind pull jeeves:15fb3b95801f2f039636
+openkind serve --installed-models jeeves:15fb3b95801f2f039636
+```
+
 ## Publishing a catalog change
 
 Commit new profile assets here first. Keep their commit reachable, then pin
