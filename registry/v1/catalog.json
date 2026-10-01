@@ -134,6 +134,15 @@
       "manifest_sha256": "047d5b8a18d586ceb00dada62d0231e75af17a97c83748d4da93241041d2c9fa"
     },
     {
+      "name": "decider-4b:0529bf6f2bed84641701",
+      "profile_id": "0529bf6f2bed84641701",
+      "loader_id": "decider-4b",
+      "description": "Pinned decider-4b merged Qwen3.5-4B slot-logit decision decoder (Apache-2.0, plain state-first layout, isolated score levels); prototype readout, research status",
+      "support_status": "rust-loadable",
+      "manifest_path": "manifests/decider-4b-0529bf6f2bed84641701.json",
+      "manifest_sha256": "19836febf98edeee1006b98d74e7cb9c5f37a189f87cf44cf749e98e7b624d6c"
+    },
+    {
       "name": "plumb-4b:c1f080794d38e94a0bc2",
       "aliases": [
         "plumb:4b"
