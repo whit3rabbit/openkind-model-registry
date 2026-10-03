@@ -103,7 +103,7 @@
     {
       "catalog_name": "decoder-logit-qwen3-4b:9dfaf11792a8d061b6b8",
       "openkind_mlx_status": "none",
-      "assessment": "A matching Qwen3-4B-Instruct-2507 MLX conversion is available in BF16. OpenKind has no Qwen3 MLX loader for this profile.",
+      "assessment": "Matching Qwen3-4B-Instruct-2507 MLX conversions are available in BF16 and 4-bit. OpenKind has no Qwen3 MLX loader for this profile.",
       "leads": [
         {
           "repository": "mlx-community/Qwen3-4B-Instruct-2507-bf16",
@@ -112,6 +112,14 @@
           "base_model": "Qwen/Qwen3-4B-Instruct-2507",
           "relationship": "same-base-conversion",
           "notes": "Same upstream checkpoint in BF16. OpenKind still needs an MLX loader and direct-logit parity checks."
+        },
+        {
+          "repository": "mlx-community/Qwen3-4B-Instruct-2507-4bit",
+          "revision": "50d427756c6b1b2fe0c0a10f67fbda1fc8e82c1b",
+          "license": "apache-2.0",
+          "base_model": "Qwen/Qwen3-4B-Instruct-2507",
+          "relationship": "same-base-conversion",
+          "notes": "Same upstream checkpoint in 4-bit MLX format (2.26 GB on its Hub card). OpenKind still needs an MLX loader and direct-logit parity checks; this precision has not been evaluated here."
         }
       ]
     },
@@ -133,8 +141,16 @@
     {
       "catalog_name": "strands-decider-2b:6a02bb0d1c6b25cae74b",
       "openkind_mlx_status": "none",
-      "assessment": "No MLX conversion of the Strands decision profile was found. The lead below converts its Qwen3.5 base model only.",
+      "assessment": "No MLX conversion of the Strands decision profile was found. The leads below are its Qwen3.5 base model and a separate task-trained decision model.",
       "leads": [
+        {
+          "repository": "chaoliangUNSW/Jev-Style-2B-Decision-v3-MLX",
+          "revision": "b86e4cbc6f420f5d7d1691299d62db272934ebf4",
+          "license": "apache-2.0",
+          "base_model": "chaoliangUNSW/Jev-Style-2B-Decision-v3",
+          "relationship": "same-task-different-model",
+          "notes": "Independent typed-decision model with its own MLX runtime, readout, and calibration. It is not a conversion of Strands' LoRA and pointer head or an OpenKind parity result; evaluate its separate contract and runtime before considering integration."
+        },
         {
           "repository": "mlx-community/Qwen3.5-2B-MLX-bf16",
           "revision": "05ce45420036b812fe0be3f72cdc1fb62bae6891",
