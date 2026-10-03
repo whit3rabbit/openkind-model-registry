@@ -4,6 +4,8 @@ This public repository distributes curated profiles for the OpenKind decision
 engine. The private OpenKind application repository owns the catalog metadata,
 compiled-in loaders, CLI, and daemon. Its `registry/v1` is mirrored here so
 `openkind catalog` and `openkind pull` can use anonymous raw HTTPS requests.
+The supplemental MLX alternatives index is for discovery only. It does not add
+entries to `openkind catalog` or make Hugging Face conversions pullable.
 
 | Here | OpenKind application repository | Model authors |
 |---|---|---|
@@ -17,22 +19,13 @@ SHA-256. The Qwen license is in [`LICENSE-QWEN`](LICENSE-QWEN). The
 [bundle source note](assets/qwen35-state-first/a047d6802c3f06f085b8/bundle/SOURCE.md)
 records profile provenance.
 
-## Jeeves native MLX profile
+## Jeeves is not a catalog entry
 
-`jeeves:15fb3b95801f2f039636` pins the 4-bit
-[cowWhySo/jeeves-mlx export](https://huggingface.co/cowWhySo/jeeves-mlx/tree/6f4220a267a94c5279b3fcbc5499de734b9a55b0).
-Its approximately 5.07 GB of artifacts stay on Hugging Face. The manifest
-includes the FP32 pointer head, tokenizer, configuration, and license files.
-
-Serving requires an OpenKind build containing the Jeeves loader, with
-`--features mlx` on macOS arm64. The profile scores an empty reasoning chain
-and returns typed Noul, Choice, and Score answers. It is a Rust-loadable
-prototype; task quality and release promotion remain separate gates.
-
-```bash
-openkind pull jeeves:15fb3b95801f2f039636
-openkind serve --installed-models jeeves:15fb3b95801f2f039636
-```
+Jeeves is an external comparator, not an OpenKind catalog profile. There is no
+Jeeves manifest or compiled-in Rust loader here, so `openkind pull jeeves` and
+`openkind serve --installed-models jeeves` are unsupported. Its weights remain
+at the model author's repository and its separate reference runtime is outside
+this registry.
 
 ## Publishing a catalog change
 
@@ -47,10 +40,10 @@ python3 scripts/sync-model-registry.py --write
 python3 scripts/sync-model-registry.py --remote
 ```
 
-The script is in OpenKind, not this repository. `--write` copies only catalog
-and manifest files; it does not copy assets, commit, or push. `--remote` checks
-the public catalog, manifests, and pinned profile assets after the push. Both
-commands leave checkpoint shards with their authors. There is no automatic
-cross-repository push. The script defaults to a checkout at
+The script is in OpenKind, not this repository. `--write` copies all metadata
+under `registry/v1`, including supplemental indexes; it does not copy profile
+assets, commit, or push. `--remote` checks the public metadata and pinned
+profile assets after the push. Both commands leave checkpoint shards with their
+authors. There is no automatic cross-repository push. The script defaults to
 `~/Documents/GitHub/openkind-model-registry`; pass `--mirror PATH` if this
 checkout is elsewhere.
