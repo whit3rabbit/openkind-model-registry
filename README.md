@@ -6,6 +6,9 @@ compiled-in loaders, CLI, and daemon. Its `registry/v1` is mirrored here so
 `openkind catalog` and `openkind pull` can use anonymous raw HTTPS requests.
 The supplemental MLX alternatives index is for discovery only. It does not add
 entries to `openkind catalog` or make Hugging Face conversions pullable.
+[`registry/v1/jev-gev-mlx-models.json`](registry/v1/jev-gev-mlx-models.json)
+pins two JEV-protocol 8-bit MLX conversions (JEV-27B-VL and GEV-26B-Decide)
+the same way: research metadata only, not installable.
 
 | Here | OpenKind application repository | Model authors |
 |---|---|---|
