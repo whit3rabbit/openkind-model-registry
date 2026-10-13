@@ -40,8 +40,15 @@ python3 scripts/sync-model-registry.py --write
 python3 scripts/sync-model-registry.py --remote
 ```
 
+Each OpenKind release fetches its catalog from
+`registry/v1/catalogs/<sha256>.json`, named by the digest it pins, so new
+catalogs never replace one a release still uses. `registry/v1/catalog.json` is
+the path v0.2.1 and earlier fetch. It stays frozen at the v0.2.1 bytes. Do not
+edit it or delete any file under `catalogs/`.
+
 The script is in OpenKind, not this repository. `--write` copies all metadata
-under `registry/v1`, including supplemental indexes; it does not copy profile
+under `registry/v1`, including supplemental indexes, and writes the catalog
+under its digest without touching the frozen `catalog.json`. It does not copy profile
 assets, commit, or push. `--remote` checks the public metadata and pinned
 profile assets after the push. Both commands leave checkpoint shards with their
 authors. There is no automatic cross-repository push. The script defaults to
